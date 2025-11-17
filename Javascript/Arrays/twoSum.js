@@ -15,7 +15,7 @@ Given an array of integers nums and a intenger target return indices of the two 
 
 function twoSumBF (nums, target) {
     for(let i = 0; i < nums.length; i++) {
-        for(let j = i; j < nums.length; j++) {
+        for(let j = i+1; j < nums.length; j++) {
             if(nums[i] + nums[j] === target) return [i,j];
         }
     }
@@ -27,7 +27,7 @@ function twoSumBF (nums, target) {
 */
 
 /**
- * Using an auxiliary DS
+ * Best approach solution: Using an auxiliary DS
  * @param {Array<number>} nums - The nums array.
  * @param {number} target - The target we are looking for
  * @return {Array <number>} The indices array
@@ -54,7 +54,7 @@ function twoSumDS (nums, target) {
 
 
 /*
-    If we can loose indices order, we can implement the next solution.
+    If we can loose indices order -not the case for leetcode-, we can implement the next solution.
 */
 
 /**
@@ -75,9 +75,9 @@ function twoSumSA (nums, target) {
         
         if(sum === target) return [left, right];
         if(sum < target) {
-            left++
+            left++;
         } else {
-            right--
+            right--;
         }
     }
 }
