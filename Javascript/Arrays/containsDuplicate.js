@@ -28,18 +28,21 @@ function containsDuplicateBF(nums) {
 */
 
 /**
- * Best approach solution: Using and auxiliary DS
+ * Best approach solution: Using an auxiliary DS
  * @param {Array<number>} nums - The nums array. 
  * @returns {boolean} Exists a duplicate or not
  */
 
 function containsDuplicate (nums) {
-    const counterMap = new Set();
+    //Set to store integers I have seen
+    const seenNumbers = new Set();
 
     for (let i = 0; i<nums.length; i++) {
-        if(counterMap.has(nums[i])) return true;
+        //If I have seen before the current integer return true
+        if(seenNumbers.has(nums[i])) return true;
 
-        counterMap.add(nums[i])
+        //If I have not seen before the current integer add it to the set
+        seenNumbers.add(nums[i])
     }
 
     return false;
