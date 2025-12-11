@@ -27,7 +27,7 @@ Given a roman numeral, convert it to an integer.
 
 /**
  * First approach solution
- * @param {*} s - The roman symbol (number).
+ * @param {string} s - The roman symbol (number).
  * @return {number} - The equivalent roman number in decimal representation
  */
 
