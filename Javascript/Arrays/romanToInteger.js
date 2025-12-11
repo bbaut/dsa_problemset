@@ -86,3 +86,7 @@ function romanToInt (s) {
 
     return sum;
 }
+
+/*
+    Time complexity: O(n) - Where n is the length of all values inside the roman expression. Nevertheless as the roman expression is always finite, we can sondier the time complexity to be constant
+*/
