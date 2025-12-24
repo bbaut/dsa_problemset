@@ -9,12 +9,41 @@
  */
 
 /**
- * Approach solution: Using an auxiliary Array. We keep track of the frequency of appearance of each character within s and t with the help an array.
+ * HashMap + Sorting solution: We make use of the definition of anagrams and sort each string in the array.
+            This sorted string must be the same for each anagram so we can use it as key of the HashMap to group
+            all anagrams with the same sorted string.
  * @param {Array<String>} strs - The array of strings. 
  * @returns {Array<Array<String>>} Array of the grouped anagrams
  */
 
 function groupAnagrams(strs) {
+    //Define the hash map. Using defaultdict avoids manual existence checks
+    const occurenciesMap = new Map();
+
+    for(let str of strs) {
+        //Sort the string and use it as key
+        const sortedStr = str.split('').sort().join('');
+
+        //Use the sorted string as key
+        if(!occurenciesMap.has(sortedStr)) occurenciesMap.set(sortedStr, []);
+        occurenciesMap.get(sortedStr).push(str);
+    }
+
+    return Array.from(occurenciesMap.values());
+}
+/*
+    Time complexity O(n * k log k) considering n the length of the array and k the average length of the strings because we are ordering each string
+    Space complexity O(n * k)
+*/
+
+/**
+ * HashMap + Counter solution: Using an auxiliary Array. We keep track of the frequency of appearance 
+ *      of each character within s and t with the help an array.
+ * @param {Array<String>} strs - The array of strings. 
+ * @returns {Array<Array<String>>} Array of the grouped anagrams
+ */
+
+function groupAnagramsOpt(strs) {
     //If the strs array is empty, return empty array
     if(strs.length === 0) return [];
 
@@ -45,3 +74,8 @@ function groupAnagrams(strs) {
 
     return Array.from(occurenciesMap.values());
 }
+
+/*
+    Time complexity O(n * k) considering n the length of the array and k the average length of the strings
+    Space complexity O(n) for the hash map
+*/

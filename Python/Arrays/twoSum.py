@@ -8,32 +8,33 @@ Given an array of integers nums and a intenger target return indices of the two 
 
 from typing import List
 
-"""
-    Hash Map solution: complements approach.
+class Solution:
+	"""
+		Hash Map solution: complements approach.
 
-    Args:
-        nums: The nums array.
-        target: The target we are looking for.
+		Args:
+			nums: The nums array.
+			target: The target we are looking for.
 
-    Returns:
-        The indices array.
-"""
+		Returns:
+			The indices array.
+	"""
 
-def twoSum (nums: List[int], target: int) -> List[int]:
-	complements: dict[int, int] = {};
-	
-	for i in range(len(nums)):
-		#Compute the complement of the current element
-		complement = target - nums[i]	
+	def twoSum (self, nums: List[int], target: int) -> List[int]:
+		complements: dict[int, int] = {};
 		
-		#Have we seen the complement of the current element before?
-		if complement in complements:
-			return [complements[complement], i]
+		for i in range(len(nums)):
+			#Compute the complement of the current element
+			complement = target - nums[i]	
 			
-		#Add nums[i] to later check if the current int is the complement of another int
-		complements[nums[i]] = i
+			#Have we seen the complement of the current element before?
+			if complement in complements:
+				return [complements[complement], i]
+				
+			#Add nums[i] to later check if the current int is the complement of another int
+			complements[nums[i]] = i
 
-"""
-Time complexity O(n) considering the array is already sorted as in the example.
-Space complexity O(n)
-"""
+	"""
+	Time complexity O(n) considering the array is already sorted as in the example.
+	Space complexity O(n)
+	"""

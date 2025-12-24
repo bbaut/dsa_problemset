@@ -34,35 +34,36 @@ Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We ret
 
 from typing import List
 
-"""
-    Two pointers solution: Over a sorted array implement two pointers.
+class Solution:
+    """
+        Two pointers solution: Over a sorted array implement two pointers.
 
-    Args:
-        nums: The nums array.
-        target: The target we are looking for.
+        Args:
+            nums: The nums array.
+            target: The target we are looking for.
 
-    Returns:
-        The indices array + 1.
-"""
+        Returns:
+            The indices array + 1.
+    """
 
-def twoSum (nums: List[int], target: int) -> List[int]:
-    #Create both pointers starting at the edges of the array
-    left: int = 0
-    right: int = len(nums)-1
+    def twoSum (self, nums: List[int], target: int) -> List[int]:
+        #Create both pointers starting at the edges of the array
+        left: int = 0
+        right: int = len(nums)-1
 
-    #We iterate while the pointers do not cross each other to not make double check 
-    while left < right:
-        if(nums[left] + nums[right] == target):
-            return [left+1, right+1]
+        #We iterate while the pointers do not cross each other to not make double check 
+        while left < right:
+            if(nums[left] + nums[right] == target):
+                return [left+1, right+1]
 
-        #If sum is grater than the target we move our right pointer to a smaller value to decrease the sum
-        if (nums[left] + nums[right] > target):
-            right -= 1
-        #If sum is smaller than the target we move our left pointer to a grater value to increase the sum
-        else:
-            left += 1 
+            #If sum is grater than the target we move our right pointer to a smaller value to decrease the sum
+            if (nums[left] + nums[right] > target):
+                right -= 1
+            #If sum is smaller than the target we move our left pointer to a grater value to increase the sum
+            else:
+                left += 1 
 
-"""
-Time complexity O(n) considering the array is already sorted as in the example.
-Space complexity O(1)
-"""
+    """
+    Time complexity O(n) considering the array is already sorted as in the example.
+    Space complexity O(1)
+    """
