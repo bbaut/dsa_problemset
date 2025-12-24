@@ -9,7 +9,7 @@ Given an array of integers nums and a intenger target return indices of the two 
 from typing import List
 
 """
-    Brute force solution: Test every combination in the array.
+    Hash Map solution: complements approach.
 
     Args:
         nums: The nums array.
@@ -32,3 +32,8 @@ def twoSum (nums: List[int], target: int) -> List[int]:
 			
 		#Add nums[i] to later check if the current int is the complement of another int
 		complements[nums[i]] = i
+
+"""
+Time complexity O(n) considering the array is already sorted as in the example.
+Space complexity O(n)
+"""
